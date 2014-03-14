@@ -94,4 +94,14 @@ tools/tojs/user.cfg
 tools/tojs/userconf.ini
 # ... userconf.ini generated if running from tools/jenkins_scripts/mac/android/
 tools/jenkins_scripts/mac/android/userconf.ini
-*/cocos2d/*
+*/cocos2d/AUTHORS
+*/cocos2d/build
+*/cocos2d/CHANGELOG
+*/cocos2d/CMakeLists.txt
+*/cocos2d/cocos
+*/cocos2d/docs
+*/cocos2d/extensions
+*/cocos2d/external
+*/cocos2d/licenses
+*/cocos2d/plugin
+*/cocos2d/tools
