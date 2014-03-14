@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include "GUI/CocosGUI.h"
+#include "CocosGUI.h"
 #include "cocostudio/CocoStudio.h"
 
 
@@ -32,36 +32,36 @@ bool HelloWorld::init()
         return false;
     }
     
-	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	Size visibleSize = CCDirector::getInstance()->getVisibleSize();
+	Point origin = CCDirector::getInstance()->getVisibleOrigin();
 
 	/////////////////////////////
 	// 2. add a menu item with "X" image, which is clicked to quit the program
 	//    you may modify it.
 
 	// add a "close" icon to exit the progress. it's an autorelease object
-	CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+	MenuItemImage *pCloseItem = MenuItemImage::create(
 		"CloseNormal.png",
 		"CloseSelected.png",
 		this,
 		menu_selector(HelloWorld::menuCloseCallback));
 
-	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
+	pCloseItem->setPosition(Point(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
 		origin.y + pCloseItem->getContentSize().height/2));
 
 	// create menu, it's an autorelease object
-	CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-	pMenu->setPosition(CCPointZero);
+	Menu* pMenu = Menu::create(pCloseItem, NULL);
+	pMenu->setPosition(Point::ZERO);
 	this->addChild(pMenu, 1);
 
 	/////////////////////////////
 	// 3. add your codes below...
 
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("hero/Hero.ExportJson");
-	CCArmature* armature = CCArmature::create("Hero");
+	ArmatureDataManager::getInstance()->addArmatureFileInfo("hero/Hero.ExportJson");
+	Armature* armature = Armature::create("Hero");
 	armature->getAnimation()->play("attack");
 	armature->setScale(1.5);
-	armature->setPosition(ccp(visibleSize.width*0.25, visibleSize.height*0.25));
+	armature->setPosition(Point(visibleSize.width*0.25, visibleSize.height*0.25));
 
 	addChild(armature);
 
