@@ -15,7 +15,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 		    $(LOCAL_PATH)/../../cocos2d \
 		    $(LOCAL_PATH)/../../cocos2d/extensions \
 		    $(LOCAL_PATH)/../../cocos2d/cocos \
-		    $(LOCAL_PATH)/../../cocos2d/cocos/gui \
+		    $(LOCAL_PATH)/../../cocos2d/cocos/ui \
 		    $(LOCAL_PATH)/../../cocos2d/cocos/editor-support/cocostudio \
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
@@ -28,7 +28,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocostudio_static
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,2d)
-$(call import-module,gui)
+$(call import-module,ui)
 $(call import-module,editor-support/cocostudio)
 $(call import-module,audio/android)
 $(call import-module,Box2D)
