@@ -1,5 +1,5 @@
 #include "Bag.h"
-#include "gui/UIHelper.h"
+#include "UIHelper.h"
 //#include "UIScene.h"
 
 

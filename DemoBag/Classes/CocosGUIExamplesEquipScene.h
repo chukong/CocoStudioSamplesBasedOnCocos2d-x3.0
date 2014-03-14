@@ -27,7 +27,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "gui/CocosGUI.h"
+#include "CocosGUI.h"
 
 
 #define EQUIP_LAYOUT_TAG_ROOT                            1000

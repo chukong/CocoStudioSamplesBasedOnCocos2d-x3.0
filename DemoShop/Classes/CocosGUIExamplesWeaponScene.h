@@ -27,7 +27,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "gui/CocosGUI.h"
+#include "CocosGUI.h"
 //#include "../../testBasic.h"
 
 USING_NS_CC;
