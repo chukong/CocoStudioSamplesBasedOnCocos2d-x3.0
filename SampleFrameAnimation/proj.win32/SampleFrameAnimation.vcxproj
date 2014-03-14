@@ -69,7 +69,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;$(EngineRoot)cocos\editor-support;$(EngineRoot);$(EngineRoot)cocos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;$(EngineRoot)cocos\editor-support;$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)cocos\ui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -155,7 +155,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ProjectReference Include="..\cocos2d\cocos\editor-support\cocostudio\proj.win32\libCocosStudio.vcxproj">
       <Project>{b57cf53f-2e49-4031-9822-047cc0e6bde2}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\cocos2d\cocos\gui\proj.win32\libGUI.vcxproj">
+    <ProjectReference Include="..\cocos2d\cocos\ui\proj.win32\libGUI.vcxproj">
       <Project>{7e06e92c-537a-442b-9e4a-4761c84f8a1a}</Project>
     </ProjectReference>
     <ProjectReference Include="..\cocos2d\extensions\proj.win32\libExtensions.vcxproj">

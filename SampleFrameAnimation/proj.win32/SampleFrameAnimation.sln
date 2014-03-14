@@ -18,7 +18,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libCocosStudio", "..\cocos2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libExtensions", "..\cocos2d\extensions\proj.win32\libExtensions.vcxproj", "{21B2C324-891F-48EA-AD1A-5AE13DE12E28}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libGUI", "..\cocos2d\cocos\gui\proj.win32\libGUI.vcxproj", "{7E06E92C-537A-442B-9E4A-4761C84F8A1A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libGUI", "..\cocos2d\cocos\ui\proj.win32\libGUI.vcxproj", "{7E06E92C-537A-442B-9E4A-4761C84F8A1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
