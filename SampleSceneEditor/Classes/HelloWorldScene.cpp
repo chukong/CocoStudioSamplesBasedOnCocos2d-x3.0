@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
 #include "VisibleRect.h"
 #include "cocos-ext.h"
-#include "gui/CocosGUI.h"
+#include "CocosGUI.h"
 #include "cocostudio/CCSSceneReader.h"
 #include "cocostudio/CCSGUIReader.h"
 #include "cocostudio/CCActionManagerEx.h"

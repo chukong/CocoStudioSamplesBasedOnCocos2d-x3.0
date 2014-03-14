@@ -171,7 +171,7 @@ void UIListViewTest_Vertical::selectedItemEvent(Ref *pSender, ListViewEventType 
 {
     switch (type)
     {
-        case LISTVIEW_ONSELECTEDITEM:
+        case LISTVIEW_ONSELECTEDITEM_END:
         {
             ListView* listView = static_cast<ListView*>(pSender);
             CCLOG("select child index = %ld", listView->getCurSelectedIndex());
@@ -344,7 +344,7 @@ void UIListViewTest_Horizontal::selectedItemEvent(Ref *pSender, ListViewEventTyp
 {
     switch (type)
     {
-        case LISTVIEW_ONSELECTEDITEM:
+        case LISTVIEW_ONSELECTEDITEM_END:
         {
             ListView* listView = static_cast<ListView*>(pSender);
             CCLOG("select child index = %ld", listView->getCurSelectedIndex());
