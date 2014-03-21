@@ -1,6 +1,10 @@
 #include "HelloWorldScene.h"
+#include "CocosGUI.h"
+#include "CocoStudio.h"
 
 USING_NS_CC;
+using namespace ui;
+using namespace cocostudio;
 
 Scene* HelloWorld::createScene()
 {
@@ -46,7 +50,7 @@ bool HelloWorld::init()
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Point::ZERO);
-    this->addChild(menu, 1);
+    //this->addChild(menu, 1);
 
     /////////////////////////////
     // 3. add your codes below...
@@ -70,7 +74,10 @@ bool HelloWorld::init()
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
     // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
+    //this->addChild(sprite, 0);
+
+	Layout *layout = dynamic_cast<Layout*>(GUIReader::getInstance()->widgetFromJsonFile("Sample.ExportJson"));
+	addChild(layout);
     
     return true;
 }
