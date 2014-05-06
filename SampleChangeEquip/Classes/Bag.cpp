@@ -74,7 +74,7 @@ void Bag::initArmature()
 		CCDirector::sharedDirector()->getVisibleSize().height * 0.40));
 	Widget* armatureWidget = Widget::create();
 	uiLayer->addChild(armatureWidget);
-	armatureWidget->addNode(armature);
+	armatureWidget->addChild(armature);
 
 	initArmatureOriginEquips();
 }
