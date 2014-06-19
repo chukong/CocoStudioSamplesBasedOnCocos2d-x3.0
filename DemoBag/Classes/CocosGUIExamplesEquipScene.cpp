@@ -2,9 +2,7 @@
 
 
 #include "CocosGUIExamplesEquipScene.h"
-#include "cocostudio/CCSSceneReader.h"
-#include "cocostudio/CCSGUIReader.h"
-#include "cocostudio/CCActionManagerEx.h"
+#include "cocostudio/CocoStudio.h"
 
 CocosGUIExamplesEquipScene::CocosGUIExamplesEquipScene()
 {
@@ -99,7 +97,7 @@ void CocosGUIExamplesEquipScene::EquipInit()
     //        
     
     // equip root from json
-    Layout* equipe_root = dynamic_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("cocosgui/gui_examples/equip_1/equip_1.json"));
+    Layout* equipe_root = dynamic_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("cocosgui/gui_examples/equip_1/equip_1.json"));
     equipe_root->setTag(EQUIP_LAYOUT_TAG_ROOT);
     m_pUILayer->addChild(equipe_root);
     
