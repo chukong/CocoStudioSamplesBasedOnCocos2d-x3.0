@@ -2,7 +2,7 @@
 #include "extensions/cocos-ext.h"
 #include "UIScene.h"
 #include "UISceneManager.h"
-#include "editor-support/cocostudio/CCSGUIReader.h"
+#include "cocostudio/CocoStudio.h"
 #include "CocosGUIScene.h"
 
 UIScene::UIScene()
@@ -24,7 +24,7 @@ bool UIScene::init()
         _uiLayer = Layer::create();
         addChild(_uiLayer);
         
-        _widget = dynamic_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("cocosgui/UITest/UITest.json"));
+        _widget = dynamic_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("cocosgui/UITest/UITest.json"));
         _uiLayer->addChild(_widget);
         
         Size screenSize = Director::getInstance()->getWinSize();
