@@ -1,9 +1,5 @@
-
-
 #include "CocosGUIExamplesRegisterScene.h"
-#include "cocostudio/CCSSceneReader.h"
-#include "cocostudio/CCSGUIReader.h"
-#include "cocostudio/CCActionManagerEx.h"
+#include "cocostudio/CocoStudio.h"
 
 CocosGUIExamplesRegisterScene::CocosGUIExamplesRegisterScene(bool bPortrait)
 : m_pUILayer(NULL)
@@ -26,7 +22,7 @@ void CocosGUIExamplesRegisterScene::onEnter()
     addChild(m_pUILayer);
     
     // register root from json
-    m_pLayout = dynamic_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("cocosgui/gui_examples/DemoLogin/DemoLogin.json"));
+    m_pLayout = dynamic_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("cocosgui/gui_examples/DemoLogin/DemoLogin.json"));
     m_pUILayer->addChild(m_pLayout);
 
     /* for 3.0 */
