@@ -29,7 +29,6 @@
 #include "cocos-ext.h"
 #include "CocosGUI.h"
 
-
 #define EQUIP_LAYOUT_TAG_ROOT                            1000
 #define EQUIP_LAYOUT_TAG_UP                              1001
 #define EQUIP_LAYOUT_TAG_CLOTHES                         1002
