@@ -29,6 +29,16 @@ USING_NS_CC;
 
 int main(int argc, char *argv[])
 {
+    auto director = Director::getInstance();
+    auto glview = director->getOpenGLView();
+    if(!glview) {
+        glview = GLView::create("My Game");
+        
+        glview->setFrameSize(480, 320);
+        
+        director->setOpenGLView(glview);
+    }
+    
     AppDelegate app;
     return Application::getInstance()->run();
 }

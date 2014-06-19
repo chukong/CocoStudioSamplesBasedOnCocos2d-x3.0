@@ -76,7 +76,7 @@ void CocosGUIExamplesRegisterScene::textFieldEvent(Ref *pSender, TextFiledEventT
         {
             TextField* textField = dynamic_cast<TextField*>(pSender);
             
-            if (strcmp(textField->getName(), "confirm_TextField") == 0)
+            if (strcmp(textField->getName().c_str(), "confirm_TextField") == 0)
             {
                 MoveBy* moveBy = MoveBy::create(0.1f, Point(0, textField->getContentSize().height * 2.5));
                 m_pLayout->runAction(moveBy);
@@ -88,7 +88,7 @@ void CocosGUIExamplesRegisterScene::textFieldEvent(Ref *pSender, TextFiledEventT
         {
             TextField* textField = dynamic_cast<TextField*>(pSender);
             
-            if (strcmp(textField->getName(), "confirm_TextField") == 0)
+            if (strcmp(textField->getName().c_str(), "confirm_TextField") == 0)
             {
                 MoveBy* moveBy = MoveBy::create(0.1f, Point(0, -textField->getContentSize().height * 2.5));
                 m_pLayout->runAction(moveBy);

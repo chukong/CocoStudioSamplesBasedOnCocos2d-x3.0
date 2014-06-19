@@ -2,9 +2,7 @@
 
 
 #include "CocosGUIExamplesEquipScene.h"
-#include "cocostudio/CCSSceneReader.h"
-#include "cocostudio/CCSGUIReader.h"
-#include "cocostudio/CCActionManagerEx.h"
+#include "cocostudio/CocoStudio.h"
 #include "CCNodeReader.h"
 
 CocosGUIExamplesEquipScene::CocosGUIExamplesEquipScene()
