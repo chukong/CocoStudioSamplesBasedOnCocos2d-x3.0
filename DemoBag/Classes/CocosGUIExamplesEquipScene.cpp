@@ -103,7 +103,6 @@ void CocosGUIExamplesEquipScene::EquipInit()
     // close button
     Button* close_btn = dynamic_cast<Button*>(title_layout->getChildByName("close_button"));
     close_btn->setVisible(false);
-//    close_btn->addReleaseEvent(this, coco_releaseselector(CocosGUIExamplesEquipScene::close));
     
     // up layout
     Layout* up_layout = dynamic_cast<Layout*>(equipe_root->getChildByName("up_panel"));
@@ -111,7 +110,7 @@ void CocosGUIExamplesEquipScene::EquipInit()
     
     // switch button
     // close button
-    Button* clothes_btn = dynamic_cast<Button*>(up_layout->getChildByName("clothes_button"));
+    auto clothes_btn = up_layout->getChildByName("clothes_button");
     clothes_btn->addTouchEventListener(this, toucheventselector(CocosGUIExamplesEquipScene::switchBtnCallBack));
     clothes_btn->setTag(EQUIP_SWITCH_LAYOUT_BUTTON_TAG_CLOTHES);
     clothes_btn->setBright(false);
@@ -171,16 +170,14 @@ void CocosGUIExamplesEquipScene::EquipInit()
     ImageView* wal_iv = ImageView::create();
     wal_iv->loadTexture("cocosgui/gui_examples/equip_1/equip/eg/1.png");
     wal_iv->setAnchorPoint(Point(0.5, 0.5));
-    float wal_x = wallBG_iv->getSize().width / 2.04;
-    float wal_y = wallBG_iv->getSize().height / 2.4;
-    wal_iv->setPosition(Point((-wallBG_iv->getSize().width / 2) +  wal_x,
-                            (-wallBG_iv->getSize().height / 2) + wal_y));
+    wal_iv->setPosition(Point(wallBG_iv->getSize().width/2, wallBG_iv->getSize().height/2 * 0.8));
     wallBG_iv->addChild(wal_iv);
     
     // original clothes be used slot
     ImageView* originalClothesSlot_iv = dynamic_cast<ImageView*>(up_layout->getChildByName("1"));
     ImageView* originalClothes_iv = ImageView::create();
     originalClothes_iv->loadTexture("cocosgui/gui_examples/equip_1/equip/eg/6.png");
+    originalClothes_iv->setAnchorPoint(Point(0, 0));
     originalClothesSlot_iv->addChild(originalClothes_iv);
     m_dicBeUsedSlot->setObject(originalClothesSlot_iv, originalClothesSlot_iv->getName());
     
@@ -269,13 +266,18 @@ void CocosGUIExamplesEquipScene::createClothes()
         "jacket_suit",
         "jacket_shoes",
     };
+   
+    int index = 0;
     // jacket imageview add to clothes slot
     for (int i = 0; i < columnMax; ++i)
     {
         ImageView* jacket_iv = ImageView::create();
         jacket_iv->loadTexture(jacket_png[i]);
-        jacket_iv->setAnchorPoint(Point(0.5, 0.5));
-        jacket_iv->setPosition(Point(offest_x + i * offest_x * 4, parent_h - offest_y));
+        jacket_iv->setAnchorPoint(Point(0, 0));
+        std::stringstream ss;
+        ss << (i+1);
+        index = i + 1;
+        jacket_iv->setPosition(clothes_layout->getChildByName(ss.str())->getPosition());
         Node* node = clothes_layout->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
@@ -297,10 +299,10 @@ void CocosGUIExamplesEquipScene::createClothes()
                 break;
             }
         }
-        /**/
         
         m_dicClothes->setObject(jacket_iv, jacket_iv->getName());
     }
+    
     
     // kimono
     const char* kimono_png[columnMax] =
@@ -320,7 +322,10 @@ void CocosGUIExamplesEquipScene::createClothes()
     {
         ImageView* kimono_iv = ImageView::create();
         kimono_iv->loadTexture(kimono_png[i]);
-        kimono_iv->setPosition(Point(offest_x + i * offest_x * 4, parent_h - offest_y * 3));
+        kimono_iv->setAnchorPoint(Point(0, 0));
+        std::stringstream ss;
+        ss << (index + i + 1);
+        kimono_iv->setPosition(clothes_layout->getChildByName(ss.str())->getPosition());
         Node* node = clothes_layout->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
@@ -372,12 +377,18 @@ void CocosGUIExamplesEquipScene::createWeapons()
         "sword_plus",
         "sword_hammer",
     };
+    
+    int index = 0;
     // sword imageview add to weapons slot
     for (int i = 0; i < swordAmount; ++i)
     {
         ImageView* sword_iv = ImageView::create();
         sword_iv->loadTexture(sword_png[i]);
-        sword_iv->setPosition(Point(offest_x, parent_h - offest_y - i * (offest_y * 2)));
+        sword_iv->setAnchorPoint(Point(0, 0));
+        std::stringstream ss;
+        ss << (i + 1);
+        index = i + 1;
+        sword_iv->setPosition(weapons_panel->getChildByName(ss.str())->getPosition());
         Node* node = weapons_panel->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
@@ -421,7 +432,11 @@ void CocosGUIExamplesEquipScene::createWeapons()
     {
         ImageView* arrow_iv = ImageView::create();
         arrow_iv->loadTexture(arrow_png[i]);
-        arrow_iv->setPosition(Point(offest_x * 5, parent_h - offest_y - i * (offest_y * 2)));
+        arrow_iv->setAnchorPoint(Point(0, 0));
+        std::stringstream ss;
+        index++;
+        ss << (index);
+        arrow_iv->setPosition(weapons_panel->getChildByName(ss.str())->getPosition());
         Node* node = weapons_panel->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
@@ -461,7 +476,11 @@ void CocosGUIExamplesEquipScene::createWeapons()
     {
         ImageView* bomb_iv = ImageView::create();
         bomb_iv->loadTexture(bomb_png[i]);
-        bomb_iv->setPosition(Point(offest_x * 9, parent_h - offest_y - i * (offest_y * 2)));
+        bomb_iv->setAnchorPoint(Point(0, 0));
+        index++;
+        std::stringstream ss;
+        ss << index;
+        bomb_iv->setPosition(weapons_panel->getChildByName(ss.str())->getPosition());
         Node* node = weapons_panel->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
@@ -508,12 +527,18 @@ void CocosGUIExamplesEquipScene::createPets()
     {
         "pet_dragon",
     };
+    
+    int index = 0;
     // dragon imageview add to pets slot
     for (int i = 0; i < dragonAmount; ++i)
     {
         ImageView* dragon_iv = ImageView::create();
         dragon_iv->loadTexture(dragon_png[i]);
-        dragon_iv->setPosition(Point(offest_x, parent_h - offest_y - i * (offest_y * 2)));
+        dragon_iv->setAnchorPoint(Point(0, 0));
+        std::stringstream ss;
+        ss << (i + 1);
+        index = i + 1;
+        dragon_iv->setPosition(pets_layout->getChildByName(ss.str())->getPosition());
         Node* node = pets_layout->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
@@ -553,7 +578,10 @@ void CocosGUIExamplesEquipScene::createPets()
     {
         ImageView* crab_iv = ImageView::create();
         crab_iv->loadTexture(crab_png[i]);
-        crab_iv->setPosition(Point(offest_x * 5, parent_h - offest_y - i * (offest_y * 2)));
+        crab_iv->setAnchorPoint(Point(0, 0));
+        std::stringstream ss;
+        ss << (index + i + 1);
+        crab_iv->setPosition(pets_layout->getChildByName(ss.str())->getPosition());
         Node* node = pets_layout->getChildren().back();
         Widget* lastChild = dynamic_cast<Widget*>(node);
         if (lastChild)
