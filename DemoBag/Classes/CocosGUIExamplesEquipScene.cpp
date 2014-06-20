@@ -1,6 +1,3 @@
-
-
-
 #include "CocosGUIExamplesEquipScene.h"
 #include "cocostudio/CocoStudio.h"
 
