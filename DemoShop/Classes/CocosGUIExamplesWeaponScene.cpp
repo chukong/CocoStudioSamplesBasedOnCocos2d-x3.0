@@ -155,7 +155,7 @@ void CocosGUIExamplesWeaponScene::ShopInit()
             Layout* shop_layout = static_cast<Layout*>(shop_scrollview->getChildren().at(j));
 //            Layout* shop_layout = static_cast<Layout*>(shop_scrollview->getChildren()->objectAtIndex(j));
             /**/
-            if (strcmp(ranking_layout->getName(), shop_layout->getName()) == 0)
+            if (strcmp(ranking_layout->getName().c_str(), shop_layout->getName().c_str()) == 0)
             {
                 ranking_layout->setTag(RANKING_ITEM_LAYOUT_TAG + (shop_layout->getTag() - SHOP_ITEM_LAYOUT_TAG));
             }
@@ -400,7 +400,7 @@ void CocosGUIExamplesWeaponScene::popupCalculate(Ref *pSender, TouchEventType ty
         Widget* buy_layout = static_cast<Widget*>(button->getParent());
         
         int price = shop_prices[m_nIndex];
-        if (strcmp(button->getName(), "add_Button") == 0)   // add
+		if (strcmp(button->getName().c_str(), "add_Button") == 0)   // add
         {
             if (strcmp(shop_price_units[m_nIndex], "Counpon") == 0)
             {
@@ -427,7 +427,7 @@ void CocosGUIExamplesWeaponScene::popupCalculate(Ref *pSender, TouchEventType ty
                 }
             }
         }
-        else if (strcmp(button->getName(), "sub_Button") == 0)  // sub
+        else if (strcmp(button->getName().c_str(), "sub_Button") == 0)  // sub
         {
             if (m_nCount > 0)
             {
