@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<UIProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectDir>C:\Work\CocoStudioSamplesBasedOnCocos2d-x3.0\SampleUILayout\SampleLayout_Editor</ProjectDir>
+  <Version>1.3.0.0</Version>
+  <Resources>C:\Work\CocoStudioSamplesBasedOnCocos2d-x3.0\SampleUILayout\SampleLayout_Editor\Resources</Resources>
+  <Name>SampleLayout</Name>
+  <JsonFileName>SampleLayout.json</JsonFileName>
+  <JsonFolder>C:\Work\CocoStudioSamplesBasedOnCocos2d-x3.0\SampleUILayout\SampleLayout_Editor\Json</JsonFolder>
+  <JsonList>
+    <string>Sample.json</string>
+  </JsonList>
+  <CanvasSize>
+    <Width>960</Width>
+    <Height>640</Height>
+  </CanvasSize>
+  <filePath>C:\Work\CocoStudioSamplesBasedOnCocos2d-x3.0\SampleUILayout\SampleLayout_Editor\SampleLayout.xml.ui</filePath>
+  <ProjectType>UIProject</ProjectType>
+  <ResRelativePath />
+  <imageFileList>
+    <string>SampleLayout0.plist</string>
+  </imageFileList>
+  <JsonSuffix>.json</JsonSuffix>
+  <CurrentUIJson />
+</UIProject>

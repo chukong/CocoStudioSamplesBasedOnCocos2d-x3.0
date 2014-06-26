@@ -40,6 +40,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
         searchPaths.push_back("hd");
         director->setContentScaleFactor(resourceSize.height/designSize.height);
     }
+	else
+	{
+		std::vector<std::string> searchPaths;
+		searchPaths.push_back("sd");
+		fileUtils->setSearchPaths(searchPaths);
+	}
     
     fileUtils->setSearchPaths(searchPaths);
     

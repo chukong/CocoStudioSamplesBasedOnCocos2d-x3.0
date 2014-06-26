@@ -34,12 +34,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto fileUtils = FileUtils::getInstance();
     std::vector<std::string> searchPaths;
     
-    if (screenSize.height > 320)
-    {
-        auto resourceSize = Size(960, 640);
-        searchPaths.push_back("hd");
-        director->setContentScaleFactor(resourceSize.height/designSize.height);
-    }
+	if (screenSize.height > 320)
+	{
+		auto resourceSize = Size(960, 640);
+		searchPaths.push_back("hd");
+		director->setContentScaleFactor(resourceSize.height/designSize.height);
+	}
+	else
+	{
+		std::vector<std::string> searchPaths;
+		searchPaths.push_back("sd");
+		fileUtils->setSearchPaths(searchPaths);
+	}
     
     fileUtils->setSearchPaths(searchPaths);
     

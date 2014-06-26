@@ -1,9 +1,7 @@
 
 
 #include "CocosGUIExamplesUIAnimationScene.h"
-#include "cocostudio/CCSSceneReader.h"
-#include "cocostudio/CCSGUIReader.h"
-#include "cocostudio/CCActionManagerEx.h"
+#include "cocostudio/CocoStudio.h"
 
 CocosGUIExamplesUIAnimationScene::CocosGUIExamplesUIAnimationScene()
 {
@@ -61,7 +59,7 @@ void CocosGUIExamplesUIAnimationScene::menuCloseCallback(Ref* pSender, TouchEven
 void CocosGUIExamplesUIAnimationScene::UIAnimationInit()
 {
     // ui animation root from json
-    Layout* uianimation_root = dynamic_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("cocosgui/gui_examples/SampleUIAnimation/SampleUIAnimation.json"));
+    Layout* uianimation_root = dynamic_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("cocosgui/gui_examples/SampleUIAnimation/SampleUIAnimation.json"));
     m_pUILayer->addChild(uianimation_root);
     
     // TextButton button
