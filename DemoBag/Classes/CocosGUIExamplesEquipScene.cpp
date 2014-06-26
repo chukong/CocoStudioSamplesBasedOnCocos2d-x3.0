@@ -110,7 +110,7 @@ void CocosGUIExamplesEquipScene::EquipInit()
     
     // switch button
     // close button
-    auto clothes_btn = up_layout->getChildByName("clothes_button");
+    auto clothes_btn = dynamic_cast<Widget*>(up_layout->getChildByName("clothes_button"));
     clothes_btn->addTouchEventListener(this, toucheventselector(CocosGUIExamplesEquipScene::switchBtnCallBack));
     clothes_btn->setTag(EQUIP_SWITCH_LAYOUT_BUTTON_TAG_CLOTHES);
     clothes_btn->setBright(false);
