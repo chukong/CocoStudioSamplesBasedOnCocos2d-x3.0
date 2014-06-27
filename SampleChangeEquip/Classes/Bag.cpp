@@ -48,7 +48,7 @@ bool Bag::init()
 }
 void Bag::initUILayer()
 {
-	Widget* widget = dynamic_cast<Widget*>(GUIReader::shareReader()->widgetFromJsonFile("SampleChangeEquip_UI_1/SampleChangeEquip_UI_1.ExportJson"));
+    Widget* widget = dynamic_cast<Widget*>(cocostudio::timeline::NodeReader::getInstance()->createNode("SampleChangeEquip_UI_1/SampleChangeEquip_UI_1.ExportJson"));
 	widget->setTag(10001);
 	uiLayer = Layer::create();
 	uiLayer->addChild(widget);
@@ -74,7 +74,7 @@ void Bag::initArmature()
 		CCDirector::sharedDirector()->getVisibleSize().height * 0.40));
 	Widget* armatureWidget = Widget::create();
 	uiLayer->addChild(armatureWidget);
-	armatureWidget->addNode(armature);
+	armatureWidget->addChild(armature);
 
 	initArmatureOriginEquips();
 }
@@ -272,14 +272,14 @@ void Bag::changeEquip(Widget* pWeapon,Widget* pGrid)
 	case EQUIP_TYPE_OTHER:
 		return;
 	case EQUIP_TYPE_GLOVE:
-		weaponName = CCString::createWithFormat("%stex.png",pWeapon->getName());
+		weaponName = CCString::createWithFormat("%stex.png",pWeapon->getName().c_str());
 
 		armature->getBone("leftglovebone")->changeDisplayByName(weaponName->getCString(),true);
 		armature->getBone("rightglovebone")->changeDisplayByName(weaponName->getCString(),true);
 		break;
 	default:
-		weaponName = CCString::createWithFormat("%stex.png",pWeapon->getName());
-		CCString* boneName = CCString::createWithFormat("%sbone",pGrid->getName());
+		weaponName = CCString::createWithFormat("%stex.png",pWeapon->getName().c_str());
+		CCString* boneName = CCString::createWithFormat("%sbone",pGrid->getName().c_str());
 		armature->getBone(boneName->getCString())->changeDisplayByName(weaponName->getCString(),true);
 		break;
 	}
@@ -291,7 +291,7 @@ void Bag::changeEquip(Widget* pWeapon,Widget* pGrid)
 void Bag::unequipEquip()
 {
 	int equipType = startGrid->getTag() * 0.01;
-	CCString* boneName = CCString::createWithFormat("%sbone",startGrid->getName());
+	CCString* boneName = CCString::createWithFormat("%sbone",startGrid->getName().c_str());
 	switch (equipType)
 	{
 	case EQUIP_TYPE_WEAPON:
@@ -310,7 +310,7 @@ void Bag::unequipEquip()
 		break;
 	default:
 		{
-			CCString* equipName = CCString::createWithFormat("%s0tex.png",startGrid->getName());
+			CCString* equipName = CCString::createWithFormat("%s0tex.png",startGrid->getName().c_str());
 			Skin* equipDefaultSkin = Skin::createWithSpriteFrameName(equipName->getCString());
 			armature->getBone(boneName->getCString())->addDisplay(equipDefaultSkin,0);
 			break;

@@ -1,9 +1,5 @@
-
-
 #include "CocosGUIExamplesPageScene.h"
-#include "cocostudio/CCSSceneReader.h"
-#include "cocostudio/CCSGUIReader.h"
-#include "cocostudio/CCActionManagerEx.h"
+#include "cocostudio/CocoStudio.h"
 
 const char* page_image_textures[4] =
 {
@@ -85,7 +81,7 @@ void CocosGUIExamplesPageScene::menuCloseCallback(Ref* pSender, TouchEventType t
 void CocosGUIExamplesPageScene::PageInit()
 {
     // page root from json
-    _root = static_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("cocosgui/gui_examples/page_1/page_1.json"));
+    _root = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("cocosgui/gui_examples/page_1/page_1.json"));
     m_pUILayer->addChild(_root);
     
     // page layout

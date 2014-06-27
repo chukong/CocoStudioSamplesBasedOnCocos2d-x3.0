@@ -1,9 +1,5 @@
-
-
 #include "CocosGUIExamplesMapScene.h"
-#include "cocostudio/CCSSceneReader.h"
-#include "cocostudio/CCSGUIReader.h"
-#include "cocostudio/CCActionManagerEx.h"
+#include "cocostudio/CocoStudio.h"
 
 const char* buildPngPaths[4] =
 {
@@ -69,7 +65,7 @@ void CocosGUIExamplesMapScene::menuCloseCallback(Ref* pSender, TouchEventType ty
 void CocosGUIExamplesMapScene::MapInit()
 {
     // map root from json
-    _root = static_cast<Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("cocosgui/gui_examples/DemoMap/DemoMap.json"));
+    _root = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("cocosgui/gui_examples/DemoMap/DemoMap.json"));
     
     m_pUILayer->addChild(_root);
     
